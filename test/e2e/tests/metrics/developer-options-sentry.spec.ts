@@ -8,6 +8,7 @@ import SettingsPage from '../../page-objects/pages/settings/settings-page';
 import HeaderNavbar from '../../page-objects/pages/header-navbar';
 import DevelopOptions from '../../page-objects/pages/developer-options-page';
 import ErrorPage from '../../page-objects/pages/error-page';
+import { MOCK_META_METRICS_ID } from '../../constants';
 
 const triggerCrash = async (driver: Driver): Promise<void> => {
   const headerNavbar = new HeaderNavbar(driver);
@@ -41,7 +42,7 @@ describe('Developer Options - Sentry', function (this: Suite) {
       {
         fixtures: new FixtureBuilder()
           .withMetaMetricsController({
-            metaMetricsId: 'fake-metrics-id',
+            metaMetricsId: MOCK_META_METRICS_ID,
             participateInMetaMetrics: true,
           })
           .build(),
