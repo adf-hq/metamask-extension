@@ -90,7 +90,7 @@ export const BridgeInputGroup = ({
 
   const currentChainId = useMultichainSelector(getMultichainCurrentChainId);
   const selectedChainId = networkProps?.network?.chainId ?? currentChainId;
-  const { balanceAmount } = useLatestBalance(token, selectedChainId);
+  const balanceAmount = useLatestBalance(token, selectedChainId);
 
   const [, handleCopy] = useCopyToClipboard(MINUTE) as [
     boolean,
@@ -145,7 +145,7 @@ export const BridgeInputGroup = ({
           inputRef={inputRef}
           type={TextFieldType.Text}
           className="amount-input"
-          placeholder={'0'}
+          placeholder="0"
           onKeyPress={(e?: React.KeyboardEvent<HTMLDivElement>) => {
             if (e) {
               // Only allow numbers and at most one decimal point
