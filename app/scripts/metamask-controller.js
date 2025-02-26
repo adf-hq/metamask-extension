@@ -1807,7 +1807,9 @@ export default class MetamaskController extends EventEmitter {
     const bridgeControllerMessenger = this.controllerMessenger.getRestricted({
       name: BRIDGE_CONTROLLER_NAME,
       allowedActions: [
-        'AccountsController:getSelectedAccount',
+        // 'AccountsController:getSelectedAccount',
+        'AccountsController:getSelectedMultichainAccount',
+        'SnapController:handleRequest',
         'NetworkController:getSelectedNetworkClient',
         'NetworkController:findNetworkClientIdByChainId',
       ],

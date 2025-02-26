@@ -14,6 +14,11 @@ export type ChainConfiguration = {
 export type L1GasFees = {
   l1GasFeesInHexWei?: string; // l1 fees for approval and trade in hex wei, appended by controller
 };
+
+export type SolanaFees = {
+  solanaFeesInLamports?: string; // solana fees in lamports, appended by controller
+};
+
 // Values derived from the quote response
 // valueInCurrency values are calculated based on the user's selected currency
 export type TokenAmountValues = {
@@ -209,7 +214,7 @@ export type GenericQuoteRequest = QuoteRequest<
 export type BridgeState = {
   bridgeFeatureFlags: BridgeFeatureFlags;
   quoteRequest: Partial<GenericQuoteRequest>;
-  quotes: (QuoteResponse & L1GasFees)[];
+  quotes: (QuoteResponse & L1GasFees & SolanaFees)[];
   quotesInitialLoadTime?: number;
   quotesLastFetched?: number;
   quotesLoadingStatus?: RequestStatus;
